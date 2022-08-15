@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerModel
 {
-    public float rotationSpeed, speed;
-    public int health;
-
+    public float rotationSpeed { get; set; } 
+    public float speed { get; set; }
+    public int health { get; set; }
+    public int damage { get; }
     public PlayerModel()
     {
-        rotationSpeed = 100.0f;
-        speed = 2.0f;
+        rotationSpeed = 200.0f;
+        speed = 4.0f;
+        health = 50;
+        damage = 5;
     }
     
 }

@@ -21,31 +21,47 @@ public class PlayerController
         rotationInput = Input.GetAxis("Horizontal") * _playerModel.rotationSpeed * Time.deltaTime;
         movementInput = Input.GetAxis("Vertical") * _playerModel.speed * Time.deltaTime;
 
-        if ((rotationInput > 0 || rotationInput < 0 || movementInput > 0 || movementInput < 0))
+        if ((rotationInput > 0 || rotationInput < 0 || movementInput > 0))
         {
             _playerView.transform.Translate(0, 0, movementInput);
-            _playerView.player_Animator.SetFloat("Speed", 0.2f);
-            _playerView.player_Animator.SetBool("Running", true);
-
+            _playerView.playerAnimator.SetFloat("Speed", 0.2f);
+            _playerView.playerAnimator.SetBool("Running", true);
             _playerView.transform.Rotate(0, rotationInput, 0);
         }
         else
         {
-            _playerView.player_Animator.SetFloat("Speed", 0.0f);
+            _playerView.playerAnimator.SetFloat("Speed", 0.0f);
         }
-            
 
+        if (movementInput < 0 && !_playerView.playerAnimator.GetBool("Running Backwards"))
+        {
+            _playerView.transform.Translate(0, 0, movementInput);
+            _playerView.playerAnimator.SetBool("Running Backwards", true);
+        }
+        else
+        {
+            _playerView.playerAnimator.SetBool("Running Backwards", false);
+        }
     }
 
     public void PlayerAttack()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetMouseButtonDown(0))
         {
-            _playerView.player_Animator.SetBool("Attack", true);
+            _playerView.playerAnimator.SetTrigger("Attack");         
+        }      
+    }
+
+    public void UpdateHealth(int damage)
+    {
+        if ((_playerModel.health - damage) <= 0)
+        {
+            GameObject.Destroy(_playerView.gameObject);
         }
         else
         {
-            _playerView.player_Animator.SetBool("Attack", false);
+            _playerModel.health -= damage;
         }
+        Debug.Log("Player Updated Health: " + _playerModel.health);
     }
 }
