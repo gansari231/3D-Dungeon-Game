@@ -13,7 +13,7 @@ public class PlayerModel
         rotationSpeed = 200.0f;
         speed = 4.0f;
         health = 50;
-        damage = 5;
+        damage = 2;
     }
     
 }
