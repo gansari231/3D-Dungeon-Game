@@ -464,8 +464,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2640231966430116039}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7185632413996581609}
   - {fileID: 3559034235843690107}
@@ -527,7 +527,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &1660539867359094068
 MonoBehaviour:
@@ -541,20 +541,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953058e860718bc4c9804383c73e9436, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PState: {fileID: 0}
-  AState: {fileID: 0}
-  CState: {fileID: 0}
+  PState: {fileID: 8865390392331302173}
+  AState: {fileID: 5895577115592708583}
+  CState: {fileID: 6931359381424430489}
   initialState: 0
   activeState: 0
   currentState: {fileID: 0}
   playerTransform: {fileID: 0}
-  navAgent: {fileID: 0}
+  navAgent: {fileID: 6816258616107230823}
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   groundLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!114 &5895577115592708583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2640231966430116039}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63f898773d2a87c44ab3efd99e0261e8, type: 3}
   m_Name: 
