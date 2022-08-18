@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a975a39cf8e1a984492d9711619abc13
+guid: 5ff0236ddaf496f44970c052a78a4435
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -19,7 +19,14 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 43.711689 mm\n\t'mixamorig:LeftLeg' : position error = 68.611572
+      mm\n\t'mixamorig:LeftFoot' : position error = 60.913540 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 31.252966 mm\n\t'mixamorig:RightUpLeg' : position error
+      = 43.711422 mm\n\t'mixamorig:RightLeg' : position error = 68.611961 mm\n\t'mixamorig:RightFoot'
+      : position error = 60.913483 mm\n\t'mixamorig:RightToeBase' : position error
+      = 31.253036 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -39,7 +46,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 68
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -526,23 +533,23 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: character(Clone)
+    - name: Player_Prefab(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Maria_J_J_Ong
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Maria_sword
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0.0000000035379994, y: 1.0524625, z: 0.017651469}
       rotation: {x: -5.0709033e-14, y: 0.0000000618015, z: -0.000000820515, w: 1}
       scale: {x: 1, y: 1, z: 1}

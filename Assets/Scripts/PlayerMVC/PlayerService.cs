@@ -6,7 +6,7 @@ public class PlayerService : SingletonGeneric<PlayerService>
 {
     [SerializeField]
     PlayerView _playerView;
-    PlayerController _playerController;
+    public PlayerController _playerController;
 
     // Start is called before the first frame update
     void Start()
