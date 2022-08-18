@@ -17,12 +17,17 @@ public class CollectableController : MonoBehaviour
     {
         if(other.CompareTag("Player") && this.gameObject.CompareTag("Key"))
         {
-            Debug.Log("Key Collected");
+            //Debug.Log("Key Collected");
+            UIManager.Instance.keysCollected++;
+            UIManager.Instance.UpdateScore(20);
             Destroy(this.gameObject);
         }
         else if(other.CompareTag("Player") && this.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("Coin Collected");
+            //Debug.Log("Coin Collected");
+            UIManager.Instance.coinsCollected++;
+            UIManager.Instance.UpdateCoinsCollected();
+            UIManager.Instance.UpdateScore(10);
             Destroy(this.gameObject);
         }
     }

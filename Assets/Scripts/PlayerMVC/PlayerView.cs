@@ -17,14 +17,6 @@ public class PlayerView : MonoBehaviour
         _playerController.PlayerAttack();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy Body"))
-        {
-            EnemyService.Instance._enemyController._enemyView.TakeDamage(_playerController._playerModel.damage);
-        }
-    }
-
     public void SetPlayerController(PlayerController _playerController)
     {
         this._playerController = _playerController;
