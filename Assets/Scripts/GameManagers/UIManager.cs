@@ -26,18 +26,39 @@ public class UIManager : SingletonGeneric<UIManager>
     TextMeshProUGUI _coinsText;
     [SerializeField]
     TextMeshProUGUI _scoreText;
+    [SerializeField]
+    TextMeshProUGUI _totalCoinsText;
+    [SerializeField]
+    TextMeshProUGUI _totalScoreText;
+    [SerializeField]
+    TextMeshProUGUI _totalEnemiesKilledText;
+    [SerializeField]
+    TextMeshProUGUI _totalKeysText;
+    [SerializeField]
+    TextMeshProUGUI _playerNameText;
 
     [HideInInspector]
     public bool startSpawning;
     [HideInInspector]
     public int score, coinsCollected, keysCollected, enemiesKilled;
 
-    [SerializeField]
-    PlayerView _playerPrefab;
+    /*[SerializeField]
+    PlayerView _playerPrefab;*/
+
+    void ResetAssets()
+    {
+        score = 0;
+        coinsCollected = 0;
+        keysCollected = 0;
+        enemiesKilled = 0;
+        _coinsText.text = " :";
+        _scoreText.text = "Score : ";
+        _nameInputField.text = "";
+    }
 
     public void StartGame()
     {
-        if(_nameInputField.text == "")
+        if (_nameInputField.text == "")
         {
             _mainMenuPanel.SetActive(false);
             _nameReminderPanel.SetActive(true);
@@ -48,7 +69,7 @@ public class UIManager : SingletonGeneric<UIManager>
             _tempCamera.gameObject.SetActive(false);
             _levelComponents.SetActive(true);
             _scoreCollectablesPanel.SetActive(true);
-            _playerPrefab.gameObject.SetActive(true);
+            PlayerService.Instance.SpawnPlayer();
             EnemyService.Instance.StartSpawning();
         }     
     }
@@ -76,5 +97,38 @@ public class UIManager : SingletonGeneric<UIManager>
     {
         score += points;
         _scoreText.text = "Score : " + score;
+    }
+
+    public void GameOver()
+    {
+        _finalScorePanel.SetActive(true);
+        _totalCoinsText.text += coinsCollected;
+        _totalEnemiesKilledText.text += enemiesKilled;
+        _totalKeysText.text += keysCollected;
+        _totalScoreText.text += score;
+        _playerNameText.text += _nameInputField.text;
+
+        StartCoroutine(GameEndSequence());     
+    }
+
+    IEnumerator GameEndSequence()
+    {
+        yield return new WaitForSeconds(8.0f);
+        ResetAssets();
+        MainMenu();
+    }
+
+    void MainMenu()
+    {
+        _finalScorePanel.SetActive(false);
+        _levelComponents.SetActive(false);
+        _scoreCollectablesPanel.SetActive(false);
+        PlayerService.Instance._playerController._playerView.gameObject.SetActive(false);
+        _mainMenuPanel.SetActive(true);
+        _tempCamera.gameObject.SetActive(true);  
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

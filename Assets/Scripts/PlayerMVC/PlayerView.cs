@@ -25,6 +25,18 @@ public class PlayerView : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Debug.Log("Player Taking Damage: " + damage);
+        PlayerHurt();
         _playerController.UpdateHealth(damage);
+    }
+
+    void PlayerHurt()
+    {
+        playerAnimator.SetTrigger("Hurt");
+    }
+
+    public void PlayerDeath()
+    {      
+        playerAnimator.SetTrigger("Die");
+        UIManager.Instance.GameOver();
     }
 }

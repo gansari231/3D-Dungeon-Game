@@ -11,8 +11,9 @@ public class PlayerController
 
     public PlayerController(PlayerView _playerView, PlayerModel _playerModel)
     {
-        this._playerView = _playerView;
+        Transform _playerTransform = SpawnManager.Instance.GetPlayerSpawnPosition();
         this._playerModel = _playerModel;
+        this._playerView = GameObject.Instantiate<PlayerView>(_playerView, _playerTransform.position, _playerTransform.rotation);
         this._playerView.SetPlayerController(this);
     }
 
@@ -54,9 +55,10 @@ public class PlayerController
 
     public void UpdateHealth(int damage)
     {
-        if ((_playerModel.health - damage) <= 0)
+        if ((_playerModel.health - damage) <= 0 && !_playerModel.isDead)
         {
-            GameObject.Destroy(_playerView.gameObject);
+            _playerModel.isDead = true;
+            _playerView.PlayerDeath();
         }
         else
         {

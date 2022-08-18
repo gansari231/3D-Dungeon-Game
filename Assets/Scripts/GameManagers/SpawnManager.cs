@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnManager : SingletonGeneric<SpawnManager>
 {
     [SerializeField]
+    Transform _playerSpawnPoint;
+    [SerializeField]
     Transform[] quarter1 = new Transform[3];
     [SerializeField]
     Transform[] quarter2 = new Transform[3];
@@ -28,5 +30,10 @@ public class SpawnManager : SingletonGeneric<SpawnManager>
                 return quarter3[transformNumber];
         }
         return quarter1[transformNumber];
+    }
+
+    public Transform GetPlayerSpawnPosition()
+    {
+        return _playerSpawnPoint;
     }
 }

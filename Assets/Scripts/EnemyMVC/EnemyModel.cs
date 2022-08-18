@@ -8,6 +8,7 @@ public class EnemyModel
     public float attackRange { get; }
     public bool inChaseRange { get; set; }
     public bool inAttackRange { get; set; }
+    public bool isAlive { get; set; }
 
     // For Patrolling of Enemy
     public Vector3 walkPoint { get; set; }
@@ -20,11 +21,12 @@ public class EnemyModel
 
     public EnemyModel()
     {
-        health = 20;
+        isAlive = true;
+        health = 10;
         damage = 5;
         chaseRange = 15.0f;
         attackRange = 3.0f;
         walkPointRange = 50.0f;
-        timeBetweenAttacks = 3.0f;
+        timeBetweenAttacks = 7.0f;
     }
 }

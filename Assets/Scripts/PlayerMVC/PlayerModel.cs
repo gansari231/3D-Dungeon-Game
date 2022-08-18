@@ -8,12 +8,13 @@ public class PlayerModel
     public float speed { get; set; }
     public int health { get; set; }
     public int damage { get; }
+    public bool isDead { get; set; }
     public PlayerModel()
     {
         rotationSpeed = 200.0f;
         speed = 4.0f;
-        health = 50;
-        damage = 2;
+        health = 10;
+        damage = 5;
     }
     
 }

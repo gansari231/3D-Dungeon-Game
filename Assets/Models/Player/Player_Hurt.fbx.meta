@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a975a39cf8e1a984492d9711619abc13
+guid: 28ea0b90ca8ee804d83417fe1a7e4d3c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Player_Light_Attack
+    second: Player_Hurt
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Player_Light_Attack
+      name: Player_Hurt
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 68
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -526,23 +526,23 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: character(Clone)
+    - name: Player_Prefab(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Maria_J_J_Ong
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Maria_sword
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: character(Clone)
+      parentName: Player_Prefab(Clone)
       position: {x: -0.0000000035379994, y: 1.0524625, z: 0.017651469}
       rotation: {x: -5.0709033e-14, y: 0.0000000618015, z: -0.000000820515, w: 1}
       scale: {x: 1, y: 1, z: 1}
