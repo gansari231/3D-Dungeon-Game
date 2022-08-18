@@ -7,10 +7,10 @@ public class EnemyController
 
     public EnemyController(EnemyView enemyView, EnemyModel enemyModel)
     {
-        this._enemyView = enemyView;
+        Transform enemyTransform = SpawnManager.Instance.GetRandomSpawnPoint();
         this._enemyModel = enemyModel;
+        _enemyView = GameObject.Instantiate<EnemyView>(enemyView, enemyTransform.transform.position, enemyTransform.transform.rotation);
         this._enemyView.SetEnemyController(this);
-        //this.enemyView.OnDrawGizmos();
     }
 
     public void RangeCheck()

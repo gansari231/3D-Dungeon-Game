@@ -50,7 +50,7 @@ public class PatrollingState : BaseState
     {
         while (true)
         {
-            await new WaitForSeconds(10f);
+            await new WaitForSeconds(5.0f);
             enemyModel.walkPointSet = false;
         }
     }
