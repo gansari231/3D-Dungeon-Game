@@ -15,15 +15,21 @@ public class EnemyController
 
     public void RangeCheck()
     {
-        _enemyModel.inChaseRange = Physics.CheckSphere(_enemyView.transform.position, _enemyModel.chaseRange, _enemyView.playerLayerMask);
-        _enemyModel.inAttackRange = Physics.CheckSphere(_enemyView.transform.position, _enemyModel.attackRange, _enemyView.playerLayerMask);
+        if(_enemyModel.isAlive)
+        {
+            _enemyModel.inChaseRange = Physics.CheckSphere(_enemyView.transform.position, _enemyModel.chaseRange, _enemyView.playerLayerMask);
+            _enemyModel.inAttackRange = Physics.CheckSphere(_enemyView.transform.position, _enemyModel.attackRange, _enemyView.playerLayerMask);
+        }      
     }
 
     public void UpdateHealth(int damage)
     {
         if ((_enemyModel.health - damage) <= 0)
         {
-            GameObject.Destroy(_enemyView.gameObject);
+            _enemyModel.isAlive = false;
+            _enemyView.enemyAnimator.SetTrigger("Death");
+            //_enemyView.gameObject.SetActive(false);
+            //GameObject.Destroy(_enemyView.gameObject);
         }
         else
         {

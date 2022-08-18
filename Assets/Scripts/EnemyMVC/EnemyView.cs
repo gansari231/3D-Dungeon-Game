@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyView : MonoBehaviour
 {
-    Animator enemyAnimator;
+    public Animator enemyAnimator;
     public EnemyController _enemyController;
 
     public PatrollingState PState;
@@ -56,6 +56,7 @@ public class EnemyView : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        enemyAnimator.SetTrigger("Hurt");
         Debug.Log("Enemy Taking Damage: " + damage);
         _enemyController.UpdateHealth(damage);
     }

@@ -6,16 +6,16 @@ public class EnemyService : SingletonGeneric<EnemyService>
 {
     [SerializeField]
     EnemyView _enemyView;
-    int num = 3;
+    [SerializeField]
+    int enemyCount = 3;
     public EnemyController _enemyController;
 
-    // Start is called before the first frame update
-    void Start()
+    public void StartSpawning()
     {
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < enemyCount; i++)
         {
             CreateEnemy();
-        }      
+        }           
     }
 
     void CreateEnemy()

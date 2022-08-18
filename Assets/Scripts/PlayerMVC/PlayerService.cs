@@ -8,8 +8,7 @@ public class PlayerService : SingletonGeneric<PlayerService>
     PlayerView _playerView;
     public PlayerController _playerController;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SpawnPlayer()
     {
         CreatePlayer();
     }
