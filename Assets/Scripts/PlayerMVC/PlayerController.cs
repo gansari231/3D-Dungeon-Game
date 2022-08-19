@@ -15,6 +15,7 @@ public class PlayerController
         this._playerModel = _playerModel;
         this._playerView = GameObject.Instantiate<PlayerView>(_playerView, _playerTransform.position, _playerTransform.rotation);
         this._playerView.SetPlayerController(this);
+        PlayerHealthController.Instance.InitializeSlider(this._playerModel.health);
     }
 
     public void PlayerMovement()
@@ -49,6 +50,7 @@ public class PlayerController
     {
         if(Input.GetMouseButtonDown(0))
         {
+            _playerModel.isAttacking = true;
             _playerView.playerAnimator.SetTrigger("Attack");         
         }      
     }
@@ -62,8 +64,8 @@ public class PlayerController
         }
         else
         {
+            PlayerHealthController.Instance.UpdateSliderValue(damage);
             _playerModel.health -= damage;
         }
-        Debug.Log("Player Updated Health: " + _playerModel.health);
     }
 }

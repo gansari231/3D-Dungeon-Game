@@ -24,17 +24,24 @@ public class EnemyController
 
     public void UpdateHealth(int damage)
     {
-        if ((_enemyModel.health - damage) <= 0)
+        if((_enemyModel.health - damage) <= 0 && _enemyModel.isAlive)
         {
+            _enemyModel.health -= damage;
             _enemyModel.isAlive = false;
             _enemyView.enemyAnimator.SetTrigger("Death");
+            UIManager.Instance.enemiesKilled++;
+            UIManager.Instance.UpdateScore(40);
+            if(UIManager.Instance.enemiesKilled < EnemyService.Instance.enemyCount)
+                EnemyService.Instance.StartSpawning();
             //_enemyView.gameObject.SetActive(false);
             //GameObject.Destroy(_enemyView.gameObject);
         }
-        else
+        else if(_enemyModel.isAlive)
         {
+            _enemyView.EnemyHurt();
             _enemyModel.health -= damage;
+            Debug.Log("Enemy Health: " + _enemyModel.health);
         }
-        Debug.Log("Enemy Updated Health: " + _enemyModel.health);
+        
     }
 }

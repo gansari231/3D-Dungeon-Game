@@ -42,9 +42,6 @@ public class UIManager : SingletonGeneric<UIManager>
     [HideInInspector]
     public int score, coinsCollected, keysCollected, enemiesKilled;
 
-    /*[SerializeField]
-    PlayerView _playerPrefab;*/
-
     void ResetAssets()
     {
         score = 0;

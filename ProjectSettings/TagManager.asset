@@ -4,11 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy Body
   - Key
   - Coin
   - I-Panel
   - H-Panel
+  - Sword
+  - Enemy
+  - Enemy Weapon
   layers:
   - Default
   - TransparentFX

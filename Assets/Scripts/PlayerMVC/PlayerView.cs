@@ -1,14 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerView : MonoBehaviour
 {
     [HideInInspector]
     public Animator playerAnimator;
     PlayerController _playerController;
+    [SerializeField]
+    GameObject _playerHealthSliderPanel;
 
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        _playerHealthSliderPanel.SetActive(true);
     }
 
     void FixedUpdate()
@@ -24,7 +28,6 @@ public class PlayerView : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Player Taking Damage: " + damage);
         PlayerHurt();
         _playerController.UpdateHealth(damage);
     }

@@ -22,9 +22,9 @@ public class EnemyModel
     public EnemyModel()
     {
         isAlive = true;
-        health = 10;
+        health = 20;
         damage = 5;
-        chaseRange = 15.0f;
+        chaseRange = 10.0f;
         attackRange = 3.0f;
         walkPointRange = 50.0f;
         timeBetweenAttacks = 7.0f;

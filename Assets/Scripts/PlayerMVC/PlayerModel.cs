@@ -9,12 +9,14 @@ public class PlayerModel
     public int health { get; set; }
     public int damage { get; }
     public bool isDead { get; set; }
+    public bool isAttacking { get; set; }
     public PlayerModel()
     {
         rotationSpeed = 200.0f;
         speed = 4.0f;
-        health = 10;
+        health = 20;
         damage = 5;
+        isAttacking = false;
     }
     
 }

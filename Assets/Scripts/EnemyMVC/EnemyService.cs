@@ -7,15 +7,12 @@ public class EnemyService : SingletonGeneric<EnemyService>
     [SerializeField]
     EnemyView _enemyView;
     [SerializeField]
-    int enemyCount = 3;
+    public int enemyCount;
     public EnemyController _enemyController;
 
     public void StartSpawning()
     {
-        for (int i = 0; i < enemyCount; i++)
-        {
-            CreateEnemy();
-        }           
+        CreateEnemy();         
     }
 
     void CreateEnemy()

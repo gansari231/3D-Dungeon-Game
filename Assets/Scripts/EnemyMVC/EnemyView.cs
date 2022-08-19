@@ -37,13 +37,6 @@ public class EnemyView : MonoBehaviour
         _enemyController.RangeCheck();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            PlayerService.Instance._playerController._playerView.TakeDamage(_enemyController._enemyModel.damage);
-        }
-    }
     public void SetEnemyController(EnemyController enemyController)
     {
         this._enemyController = enemyController;
@@ -54,11 +47,18 @@ public class EnemyView : MonoBehaviour
         enemyAnimator.SetTrigger("Attack");
     }
 
-    public void TakeDamage(int damage)
+    public void EnemyHurt()
     {
         enemyAnimator.SetTrigger("Hurt");
-        Debug.Log("Enemy Taking Damage: " + damage);
-        _enemyController.UpdateHealth(damage);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(PlayerService.Instance._playerController._playerModel.isAttacking)
+        {
+            enemyAnimator.SetTrigger("Hurt");
+            _enemyController.UpdateHealth(damage);
+        }      
     }
 
     private void InitializeState()
