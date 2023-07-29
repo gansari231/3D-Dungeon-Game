@@ -1,4 +1,5 @@
 - Implemented MVC for player and enemies.
+- Added score system to calculate total score depending upon coins collected and enemies killed.
 - Usage of Object Pooling for managing enemies used in the game.
 - Usage of Singleton design pattern for in-game Managers and Player.
 - Added in game collectables and UI for updating score and player’s health whenever an event is triggered.
